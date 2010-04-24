@@ -471,8 +471,8 @@ sub build_panel {
         HTTP::Server::Simple
         Server::Simple
         SCGI
-        Standalone::Prefork::Server::Starter
         Starman
+        Starlet
         Twiggy
         POE
         ReverseHTTP
@@ -538,7 +538,8 @@ sub build_panel {
 
     # output panel for server
     require Padre::Wx::Output;
-    my $output = Padre::Wx::Output->new($panel);
+    my $output = Padre::Wx::Output->new($self->main, $panel);
+    
     $box->Add( $output, 1, Wx::wxGROW );
 
     # wrapping it up
